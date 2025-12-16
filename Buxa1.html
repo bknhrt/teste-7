@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Nossa surpresa</title>
+  <meta name="theme-color" content="#ff6b6b" />
+
+  <!-- Fonte elegante e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+</head>
+
+  <style>
+    :root{
+      --bg:#fff8f8;
+      --text:#2b2b2b;
+      --muted:#6b6b6b;
+      --primary:#ff6b6b;
+      --primary-dark:#e85c5c;
+      --card:#ffffff;
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
+    a{color:var(--primary);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:880px;margin:0 auto;padding:22px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .section{padding:24px}
+    h1,h2{margin:0 0 12px 0}
+    h1{font-family:"Playfair Display", serif;font-size:2.2rem;line-height:1.15}
+    h2{font-weight:700;font-size:1.25rem}
+    p{margin:0 0 12px 0;line-height:1.7}
+    .muted{color:var(--muted)}
+    .chip{display:inline-block;background:#ffecec;color:#ff9292;border-radius:999px;padding:8px 14px;font-weight:600}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--primary);color:white;border:none;border-radius:999px;
+      padding:14px 18px;font-weight:700;box-shadow:var(--shadow);cursor:pointer;
+      transition:transform .05s ease, background .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:active{transform:scale(.98)}
+    .btn.secondary{background:#fff;color:var(--primary);border:2px solid #ffd1d1}
+    .hero{
+      position:relative;overflow:hidden;border-radius:24px;
+      background:linear-gradient(135deg,#ffe1e1, #fff), url('images/capa.jpg') center/cover;
+      min-height:52vh;display:flex;align-items:flex-end;
+    }
+    .hero .overlay{
+      width:100%;padding:22px 22px 26px;background:linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0));
+      color:white;
+    }
+    .hero h1{font-size:2.4rem}
+    .hero p{color:#ffecec}
+
+    /* Carrossel */
+    .carousel{position:relative}
+    .carousel-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+    .carousel-track::-webkit-scrollbar{height:8px}
+    .carousel-track::-webkit-scrollbar-thumb{background:#ffd1d1;border-radius:999px}
+    .slide{
+      scroll-snap-align:center;flex:0 0 82%;
+      background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)
+    }
+    .slide img{width:100%;height:56vh;object-fit:cover}
+    .slide .caption{padding:12px;font-size:.95rem;color:var(--muted)}
+
+    /* Linha do tempo */
+    .timeline{display:grid;gap:18px}
+    .event{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:flex-start}
+    .dot{
+      width:40px;height:40px;border-radius:50%;background:#ffe1e1;
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#b03a3a
+    }
+    .event .content{background:#ffffff;border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+    .event .content h3{margin:0 0 6px 0;font-size:1.05rem}
+
+    /* Carta */
+    .letter{background:#fff;line-height:1.9;font-size:1.05rem;border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .signature{margin-top:14px;font-family:"Playfair Display", serif;font-style:italic;color:#b03a3a;font-size:1.2rem}
+
+    /* Rodapé */
+    footer{padding:18px 0;color:var(--muted);text-align:center}
+
+    /* Responsivo */
+    @media (min-width:900px){
+      .slide{flex:0 0 48%}
+      .slide img{height:48vh}
+      .hero{min-height:60vh}
+      .hero h1{font-size:3rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CAPA -->
+  <div class="container">
+    <section class="hero card" aria-label="Capa com mensagem">
+      <div class="overlay">
+        
+        <span class="chip">Para nós dois</span>
+        <h1>Uma surpresa, do meu coração pro seu</h1>
+        <p>Porque cada momento ao seu lado merece ser lembrado com carinho.</p>
+        
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <button class="btn" onclick="scrollToId('galeria')">Ver nossas fotos</button>
+        </div>
+      </div>
+    </section>
+</div>
+
+  <!-- GALERIA / CARROSSEL -->
+  <div class="container" id="galeria">
+    <section class="card section" aria-label="Galeria de fotos">
+      <h2>Nossas fotos favoritas</h2>
+      <p class="muted">Deslize para o lado. Toque e segure para ver os detalhes.</p>
+
+      <div class="carousel">
+        <div class="carousel-track" id="track">
+          <!-- Troque as imagens em /images/ e os textos abaixo -->
+          <figure class="slide">
+            <img src="IMG-20251212-WA0167.jpg" alt="Olha nois 2 amor" />
+            <figcaption class="caption">Olha nois 2 amor</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="IMG_20251212_202651571.jpg" alt="Tú com meu chaplão fica linda de bonita slk" />
+            <figcaption class="caption">Tua energia é contagiante.</figcaption>
+          </figure>
+         
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:14px">
+        <button class="btn" onclick="snapPrev()">◀️ Voltar</button>
+        <button class="btn" onclick="snapNext()">Avançar ▶️</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- LINHA DO TEMPO -->
+  <!--div class="container" id="timeline">
+    <section class="card section" aria-label="Linha do tempo de momentos">
+      <h2>Nossa linha do tempo</h2>
+      <div class="timeline">
+        <div class="event">
+          <div class="dot">01</div>
+          <div class="content">
+            <h3>O primeiro olhar</h3>
+            <p>O jeito como você sorriu naquele dia me fez querer ficar para sempre.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="dot">02</div>
+          <div class="content">
+            <h3>Nosso primeiro café</h3>
+            <p>Descobri que conversas podem ser abraços quando a gente se entende.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="dot">03</div>
+          <div class="content">
+            <h3>A viagem inesperada</h3>
+            <p>As melhores histórias começam quando a gente decide ir junto.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="dot">04</div>
+          <div class="content">
+            <h3>Nosso lar</h3>
+            <p>Não é sobre lugar — é sobre quem está lá quando eu chego.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div-->
+
+
+<div class="container" id="videos">
+  <section class="card section" aria-label="Vídeos locais">
+    <h2>Nossos vídeos</h2>
+    <video controls playsinline style="width:100%;border-radius:16px;box-shadow:var(--shadow);margin-bottom:18px">
+      <source src="1215 (1).mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+
+  
+
+  <!-- CARTA -->
+  <div class="container" id="carta">
+    <section class="card section" aria-label="Carta">
+      <h2>Uma carta para você</h2>
+      <div class="letter">
+        <p>Ei, amor. Eu queria te dizer que por mais que a gente se conheceu a pouquisimo tempo, eu sinto que voçê é a pessoa cetra, vou fazer de tudo pra nois 2 durarmos pra sempre.</p>
+        <p>Obrigado por ser meu lugar seguro. Prometo continuar te escolhendo nos dias bonitos e nos dias nublados.</p>
+        <p>Que isso aqui seja só mais um pedacinho do que a gente está construindo.</p>
+        <div class="signature">Com amor, Cadu</div>
+      </div>
+      <div style="margin-top:14px">
+        <button class="btn" onclick="revealSurprise()">Abrir a surpresa ✨</button>
+      </div>
+      <p id="surprise" class="muted" style="margin-top:10px;display:none">Te amo. Hoje, amanhã e nos nossos próximos capítulos.</p>
+    </section>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    TE AMO KAUAU <3. | © <span id="year"></span>
+  </footer>
+
+  <script>
+    // Rolagem suave
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }
+
+    // Carrossel simples com scroll snap
+    const track = document.getElementById('track');
+    function currentSnapIndex(){
+      const slides = [...track.children];
+      const scrollLeft = track.scrollLeft;
+      // acha o slide mais próximo da borda esquerda
+      let best = 0, bestDist = Infinity;
+      slides.forEach((s, i)=>{
+        const dist = Math.abs(s.offsetLeft - scrollLeft);
+        if(dist < bestDist){ bestDist = dist; best = i; }
+      });
+      return best;
+    }
+    function snapTo(index){
+      const slides = [...track.children];
+      const i = Math.max(0, Math.min(slides.length-1, index));
+      track.scrollTo({left: slides[i].offsetLeft, behavior:'smooth'});
+    }
+    function snapNext(){ snapTo(currentSnapIndex()+1); }
+    function snapPrev(){ snapTo(currentSnapIndex()-1); }
+
+    // Surpresa
+    function revealSurprise(){
+      const s = document.getElementById('surprise');
+      s.style.display = 'block';
+    }
+
+    // Ano atual
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
